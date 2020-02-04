@@ -36,9 +36,10 @@ public void enable () {
     VictorSP bottom_Left = new VictorSP(Constants.DRIVE_BOTTOM_LEFT);
     VictorSP top_Right = new VictorSP(Constants.DRIVE_TOP_RIGHT);
     VictorSP extra_Right = new VictorSP(Constants.DRIVE_EXTRA_RIGHT);
+    VictorSP bottom_Right = new VictorSP(Constants.DRIVE_BOTTOM_RIGHT);
 
     leftMotors = new SpeedControllerGroup(top_Left, extra_Left, bottom_Left);
-    rightMotors = new SpeedControllerGroup(top_Right, extra_Right, bottom_Left);
+    rightMotors = new SpeedControllerGroup(top_Right, extra_Right, bottom_Right);
     leftMotors.setInverted(true);
     rightMotors.setInverted(true);
 
