@@ -10,10 +10,10 @@ package frc.robot;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.systems.*;
+//import frc.robot.systems.*;
 
 /**
- * @author Ali Shariatmadari, Arianne Rull, Benhur Alula
+ * @author Ali Shariatmadari, Erfan , Arianne Rull, Benhur Alula
  * FOR FRC 2020 Infinite Recharge
  */
 
@@ -25,7 +25,7 @@ public class Robot extends TimedRobot {
     private String m_autoSelected;
     private final SendableChooser<String> m_chooser = new SendableChooser<>();*/
 
-    private XboxController controller = new XboxController(0);
+    private XboxController controller1 = new XboxController(0);
     private XboxController controller2 = new XboxController(1);
     /*private Driver drive = new Driver(controller);
     private Hatch hatch = new Hatch(controller, controller2);*/
