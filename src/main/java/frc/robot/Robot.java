@@ -10,7 +10,9 @@ package frc.robot;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.systems.ParadigmSystem;
 //import frc.robot.systems.*;
+import frc.robot.systems.helloDrive;
 
 /**
  * @author Ali Shariatmadari, Erfan , Arianne Rull, Benhur Alula
@@ -26,11 +28,11 @@ public class Robot extends TimedRobot {
     private final SendableChooser<String> m_chooser = new SendableChooser<>();*/
 
     private XboxController controller1 = new XboxController(0);
-    private XboxController controller2 = new XboxController(1);
-    /*private Driver drive = new Driver(controller);
-    private Hatch hatch = new Hatch(controller, controller2);*/
+   // private XboxController controller2 = new XboxController(1);
+    private helloDrive drive = new helloDrive(controller1);
+    /*private Hatch hatch = new Hatch(controller, controller2);*/
     //private Climb climb = new Climb(controller2);
-    //ParadigmSystem[] systems = {drive, hatch, /*new Ramp(controller2),*/ /*new Shooter(controller2)climb*/};
+    ParadigmSystem[] systems = {drive, /*new Ramp(controller2),*/ /*new Shooter(controller2)climb*/};
 
     public Robot()
     {
@@ -41,9 +43,9 @@ public class Robot extends TimedRobot {
 
     @Override
     public void robotInit() { // Initialize Robot
-       /* for (ParadigmSystem system : systems) { // Enable systems
+        for (ParadigmSystem system : systems) { // Enable systems
             system.enable();
-        }*/
+        }
     }
 
     @Override
@@ -53,7 +55,7 @@ public class Robot extends TimedRobot {
     @Override
     public void teleopPeriodic() { // Teleop UPS
         //for (ParadigmSystem system : systems) { // Update systems
-           // systems[0].update();
+            systems[0].update();
             //systems[1].update();
         //}
     }
@@ -117,8 +119,8 @@ public class Robot extends TimedRobot {
 
     @Override
     public void disabledInit() { // Shutdown
-       /* for (ParadigmSystem system : systems) { // Disable systems
+        for (ParadigmSystem system : systems) { // Disable systems
             system.disable();
-        }*/
+        }
     }
 }
