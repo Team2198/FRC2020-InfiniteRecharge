@@ -31,12 +31,17 @@ public class helloDrive extends ParadigmSystem {
 
 @Override
 public void enable () {
-    VictorSP top_Left = new VictorSP(Constants.DRIVE_TOP_LEFT);
-    VictorSP extra_Left = new VictorSP(Constants.DRIVE_EXTRA_LEFT);
-    VictorSP bottom_Left = new VictorSP(Constants.DRIVE_BOTTOM_LEFT);
-    VictorSP top_Right = new VictorSP(Constants.DRIVE_TOP_RIGHT);
-    VictorSP extra_Right = new VictorSP(Constants.DRIVE_EXTRA_RIGHT);
-    VictorSP bottom_Right = new VictorSP(Constants.DRIVE_BOTTOM_RIGHT);
+    // code function
+    // press forward, it goes backward
+    // press backward, it goes forward
+    // it turn correctly 
+    VictorSP top_Left = new VictorSP(Constants.DRIVE_TOP_RIGHT);
+    VictorSP extra_Left = new VictorSP(Constants.DRIVE_EXTRA_RIGHT);
+    VictorSP bottom_Left = new VictorSP(Constants.DRIVE_BOTTOM_RIGHT);
+    
+    VictorSP top_Right = new VictorSP(Constants.DRIVE_TOP_LEFT);
+    VictorSP extra_Right = new VictorSP(Constants.DRIVE_EXTRA_LEFT);
+    VictorSP bottom_Right = new VictorSP(Constants.DRIVE_BOTTOM_LEFT);
 
     leftMotors = new SpeedControllerGroup(top_Left, extra_Left, bottom_Left);
     rightMotors = new SpeedControllerGroup(top_Right, extra_Right, bottom_Right);
