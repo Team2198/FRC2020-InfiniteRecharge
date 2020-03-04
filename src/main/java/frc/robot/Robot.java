@@ -7,12 +7,11 @@
 
 package frc.robot;
 
-import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.systems.Drive;
 import frc.robot.systems.ParadigmSystem;
 //import frc.robot.systems.*;
-import frc.robot.systems.helloDrive;
 
 /**
  * @author Ali Shariatmadari, Erfan , Arianne Rull, Benhur Alula
@@ -28,18 +27,13 @@ public class Robot extends TimedRobot {
     private final SendableChooser<String> m_chooser = new SendableChooser<>();*/
 
     private XboxController controller1 = new XboxController(0);
-   // private XboxController controller2 = new XboxController(1);
-    private helloDrive drive = new helloDrive(controller1);
-    /*private Hatch hatch = new Hatch(controller, controller2);*/
-    //private Climb climb = new Climb(controller2);
-    ParadigmSystem[] systems = {drive, /*new Ramp(controller2),*/ /*new Shooter(controller2)climb*/};
+    // private XboxController controller2 = new XboxController(1);*/
+    private Drive drive = new Drive(controller1);
+    ParadigmSystem[] systems = {drive/*, new Ramp(controller2),*/ /*new Shooter(controller2)climb*/};
 
-    public Robot()
-    {
-        CameraServer.getInstance().startAutomaticCapture();
+    public Robot() {
+        // CameraServer.getInstance().startAutomaticCapture();
     }
-
-    //private Timer autoTimer;
 
     @Override
     public void robotInit() { // Initialize Robot
@@ -65,12 +59,7 @@ public class Robot extends TimedRobot {
     }
 
     /**
-     * This 
-     * 
-     * 
-     * 
-     * 
-     * autonomous (along with the chooser code above) shows how to select
+     * This  autonomous (along with the chooser code above) shows how to select
      * between different autonomous modes using the dashboard. The sendable
      * chooser code works with the Java SmartDashboard. If you prefer the
      * LabVIEW Dashboard, remove all of the chooser code and uncomment the
@@ -80,6 +69,7 @@ public class Robot extends TimedRobot {
      * the switch structure below with additional strings. If using the
      * SendableChooser make sure to add them to the chooser code above as well.
      */
+    //private Timer autoTimer;
     @Override
     public void autonomousInit() {
         //autoTimer = new Timer(); // Initialize autonomous timer
@@ -92,9 +82,6 @@ public class Robot extends TimedRobot {
 
     }
 
-    /**
-     * This function is called periodically during autonomous.
-     */ 
     @Override
     public void autonomousPeriodic() {
         /*switch (m_autoSelected) {
@@ -110,9 +97,6 @@ public class Robot extends TimedRobot {
        teleopPeriodic();
     }
 
-    /**
-     * This function is called periodically during test mode.
-     */
     @Override
     public void testPeriodic() {
     }
