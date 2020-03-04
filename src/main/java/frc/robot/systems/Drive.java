@@ -27,7 +27,12 @@ public class Drive extends ParadigmSystem {
         if (Math.abs(xSpeed) < 0.1){
             driver.tankDrive(zRotation * TURN_SENSE, -zRotation * TURN_SENSE, true);
         } else {
-            driver.curvatureDrive(xSpeed, zRotation, false);
+            if (xSpeed < 0){
+                driver.curvatureDrive(xSpeed, zRotation, false);
+            } else {
+                driver.curvatureDrive(xSpeed, -zRotation, false);
+            }
+            
         }
     }
 
