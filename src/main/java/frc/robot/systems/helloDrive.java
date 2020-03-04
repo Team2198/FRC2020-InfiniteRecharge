@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.Constants;
 import frc.robot.systems.ParadigmSystem;
-
 public class helloDrive extends ParadigmSystem {
 
     private DifferentialDrive driver;
