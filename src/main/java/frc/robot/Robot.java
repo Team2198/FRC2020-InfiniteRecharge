@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.systems.Drive;
 import frc.robot.systems.ParadigmSystem;
+import frc.robot.systems.Shooter;
 
 /**
  * @author Ali Shariatmadari, Erfan , Arianne Rull, Benhur Alula
@@ -28,8 +29,7 @@ public class Robot extends TimedRobot {
 
     private XboxController controller1 = new XboxController(0);
     // private XboxController controller2 = new XboxController(1);*/
-    private Drive drive = new Drive(controller1);
-    ParadigmSystem[] systems = {drive/*, new Ramp(controller2),*/ /*new Shooter(controller2)climb*/};
+    ParadigmSystem[] systems = {new Drive(controller1), new Shooter(controller1)};
 
     public Robot() {
         CameraServer.getInstance().startAutomaticCapture();
@@ -48,10 +48,9 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopPeriodic() { // Teleop UPS
-        //for (ParadigmSystem system : systems) { // Update systems
-            systems[0].update();
-            //systems[1].update();
-        //}
+        // Update systems
+        systems[0].update();
+        systems[1].update();
     }
 
     @Override
