@@ -1,5 +1,5 @@
 package frc.robot.systems;
-//grbfhvjsdk
+
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
@@ -32,7 +32,6 @@ public class Drive extends ParadigmSystem {
             } else {
                 driver.curvatureDrive(xSpeed, -zRotation, false);
             }
-            
         }
     }
 

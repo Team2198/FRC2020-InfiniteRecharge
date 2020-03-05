@@ -7,15 +7,11 @@
 
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.systems.Drive;
 import frc.robot.systems.ParadigmSystem;
-
-//do we put this?
-//import edu.wpi.first.cameraserver.CameraServer;
-
-//import frc.robot.systems.*;
 
 /**
  * @author Ali Shariatmadari, Erfan , Arianne Rull, Benhur Alula
@@ -36,7 +32,7 @@ public class Robot extends TimedRobot {
     ParadigmSystem[] systems = {drive/*, new Ramp(controller2),*/ /*new Shooter(controller2)climb*/};
 
     public Robot() {
-        // CameraServer.getInstance().startAutomaticCapture();
+        CameraServer.getInstance().startAutomaticCapture();
     }
 
     @Override
@@ -80,7 +76,7 @@ public class Robot extends TimedRobot {
         //autoTimer.start(); // Start timer
 
         //m_autoSelected = m_chooser.getSelected();
-        // autoSelected = SmartDashboard.getString("Auto Selector", defaultAuto);
+        //autoSelected = SmartDashboard.getString("Auto Selector", defaultAuto);
         //System.out.println("Auto selected: " + m_autoSelected)
         
 
