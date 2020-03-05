@@ -15,7 +15,7 @@ import frc.robot.systems.ParadigmSystem;
 import frc.robot.systems.Shooter;
 
 /**
- * @author Ali Shariatmadari, Erfan , Arianne Rull, Benhur Alula
+ * @author Ali Shariatmadari , Arianne Rull, Benhur Alula
  * FOR FRC 2020 Infinite Recharge
  */
 
