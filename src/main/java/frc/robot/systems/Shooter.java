@@ -6,14 +6,14 @@ import frc.robot.systems.ParadigmSystem;
 
 public class Shooter extends ParadigmSystem {
 
-    private final double RISER_DOWN_SPEED = -0.90;
-    private final double RISER_UP_SPEED = 1.00;
+    private final double RISER_DOWN_SPEED = 2.90;
+    private final double RISER_UP_SPEED = -0.25;
 
-    private final double CONVEYOR_SPEED = 0.80;
-    private final double SHOOTER_SPEED = 0.80;
+    private final double CONVEYOR_SPEED = -0.25;
+    private final double SHOOTER_SPEED = -0.25;
 
-    DMC60 intake, riser_left, riser_right;
-    DMC60 shooter, conveyor;
+    VictorSP intake, riser_left, riser_right;
+    VictorSP shooter, conveyor;
 
     public Shooter(XboxController controller){
         super("Shooting Mechanism", controller);
