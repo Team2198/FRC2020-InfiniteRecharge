@@ -1,6 +1,7 @@
 package frc.robot.systems;
 
-import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.VictorSP;
+import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.Constants;
 import frc.robot.systems.ParadigmSystem;
 
@@ -64,11 +65,11 @@ public class Shooter extends ParadigmSystem {
 
     @Override
     public void enable(){
-        intake = new DMC60(Constants.INTAKE);
-        riser_left = new DMC60(Constants.RISER_LEFT);
-        riser_right = new DMC60(Constants.RISER_RIGHT);
-        shooter = new DMC60(Constants.SHOOTER);
-        conveyor = new DMC60(Constants.CONVEYOR);
+        intake = new VictorSP(Constants.INTAKE);
+        riser_left = new VictorSP(Constants.RISER_LEFT);
+        riser_right = new VictorSP(Constants.RISER_RIGHT);
+        shooter = new VictorSP(Constants.SHOOTER);
+        conveyor = new VictorSP(Constants.CONVEYOR);
         super.enable();
     }
     

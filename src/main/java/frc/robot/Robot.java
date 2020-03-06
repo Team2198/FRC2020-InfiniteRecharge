@@ -76,9 +76,7 @@ public class Robot extends TimedRobot {
 
         //m_autoSelected = m_chooser.getSelected();
         //autoSelected = SmartDashboard.getString("Auto Selector", defaultAuto);
-        //System.out.println("Auto selected: " + m_autoSelected)
-        
-
+        //System.out.println("Auto selected: " + m_autoSelected);
     }
 
     @Override
