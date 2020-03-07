@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Timer;
+
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
@@ -31,7 +33,7 @@ public class Robot extends TimedRobot {
     private XboxController controller1 = new XboxController(0);
     private XboxController controller2 = new XboxController(1);
     //, new Camera(controller1)
-    ParadigmSystem[] systems = {new Drive(controller1), new Shooter(controller2)};
+    ParadigmSystem[] systems = {new Drive(controller1)/*, new Shooter(controller2)*/};
 
     public Robot() {
     }
@@ -51,7 +53,7 @@ public class Robot extends TimedRobot {
     public void teleopPeriodic() { // Teleop UPS
         // Update systems
         systems[0].update();
-        systems[1].update();
+        //systems[1].update();
     }
 
     @Override
@@ -69,11 +71,11 @@ public class Robot extends TimedRobot {
      * the switch structure below with additional strings. If using the
      * SendableChooser make sure to add them to the chooser code above as well.
      */
-    //private Timer autoTimer;
+    private Timer autoTimer;
     @Override
     public void autonomousInit() {
-        //autoTimer = new Timer(); // Initialize autonomous timer
-        //autoTimer.start(); // Start timer
+        autoTimer = new Timer(); // Initialize autonomous timer
+        autoTimer.start(); // Start timer
 
         //m_autoSelected = m_chooser.getSelected();
         //autoSelected = SmartDashboard.getString("Auto Selector", defaultAuto);
@@ -82,6 +84,12 @@ public class Robot extends TimedRobot {
 
     @Override
     public void autonomousPeriodic() {
+        if (autoTimer.get() < 1.5){
+            double autospeed = -0.5;
+            ((Drive)systems[0]).getDrive().tankDrive(autospeed, autospeed);
+        } else {
+            ((Drive)systems[0]).getDrive().tankDrive(0, 0); 
+        }
         /*switch (m_autoSelected) {
             case kCustomAuto:
                 // Put custom auto code here
@@ -92,7 +100,6 @@ public class Robot extends TimedRobot {
                 // Put default auto code here
                 break;
         }*/
-       teleopPeriodic();
     }
 
     @Override
