@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.systems.Camera;
 import frc.robot.systems.Drive;
 import frc.robot.systems.ParadigmSystem;
 import frc.robot.systems.Shooter;
@@ -28,11 +29,11 @@ public class Robot extends TimedRobot {
     private final SendableChooser<String> m_chooser = new SendableChooser<>();*/
 
     private XboxController controller1 = new XboxController(0);
-    // private XboxController controller2 = new XboxController(1);*/
-    ParadigmSystem[] systems = {new Drive(controller1), new Shooter(controller1)};
+    private XboxController controller2 = new XboxController(1);
+    //, new Camera(controller1)
+    ParadigmSystem[] systems = {new Drive(controller1), new Shooter(controller2)};
 
     public Robot() {
-        CameraServer.getInstance().startAutomaticCapture();
     }
 
     @Override
