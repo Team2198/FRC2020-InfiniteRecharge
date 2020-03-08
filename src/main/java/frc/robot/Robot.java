@@ -8,14 +8,11 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Timer;
-
-import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.systems.Camera;
 import frc.robot.systems.Drive;
 import frc.robot.systems.ParadigmSystem;
-import frc.robot.systems.Shooter;
 
 /**
  * @author Ali Shariatmadari , Arianne Rull, Benhur Alula
@@ -32,7 +29,7 @@ public class Robot extends TimedRobot {
 
     private XboxController controller1 = new XboxController(0);
     private XboxController controller2 = new XboxController(1);
-    //, new Camera(controller1)
+    Camera cam = new Camera(controller1);
     ParadigmSystem[] systems = {new Drive(controller1)/*, new Shooter(controller2)*/};
 
     public Robot() {
@@ -43,6 +40,7 @@ public class Robot extends TimedRobot {
         for (ParadigmSystem system : systems) { // Enable systems
             system.enable();
         }
+        cam.enable();
     }
 
     @Override
@@ -52,6 +50,7 @@ public class Robot extends TimedRobot {
     @Override
     public void teleopPeriodic() { // Teleop UPS
         // Update systems
+        cam.update();
         systems[0].update();
         //systems[1].update();
     }
@@ -84,8 +83,8 @@ public class Robot extends TimedRobot {
 
     @Override
     public void autonomousPeriodic() {
-        if (autoTimer.get() < 1.5){
-            double autospeed = -0.5;
+        if (autoTimer.get() < 0.75){
+            double autospeed = -0.55;
             ((Drive)systems[0]).getDrive().tankDrive(autospeed, autospeed);
         } else {
             ((Drive)systems[0]).getDrive().tankDrive(0, 0); 
@@ -111,5 +110,6 @@ public class Robot extends TimedRobot {
         for (ParadigmSystem system : systems) { // Disable systems
             system.disable();
         }
+        cam.disable();
     }
 }

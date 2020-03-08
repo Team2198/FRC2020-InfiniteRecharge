@@ -19,14 +19,14 @@ public class Camera extends ParadigmSystem {
     @Override
     public void enable(){
         camera1 = CameraServer.getInstance().startAutomaticCapture(0);
-        camera2 = CameraServer.getInstance().startAutomaticCapture(1);
-        server = CameraServer.getInstance().getServer();
+        //camera2 = CameraServer.getInstance().startAutomaticCapture(1);
+        //server = CameraServer.getInstance().getServer();
 
         camera1.setFPS(60);
-        camera2.setFPS(60);
+        //camera2.setFPS(60);
         
         camera1.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
-        camera2.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
+        //camera2.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
         
     }
 
